@@ -1,15 +1,43 @@
 body {
     background-color: #E44D4E;
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
 }
 
 h1 {
     font-family: 'Gochi Hand', cursive;
     color: #ffffff;
     text-align: center;
+    font-size: 80px;
+}
 
+#header {
+    width: 500px;
+}
+
+#title{
+    position: absolute;
+    top: 70px;
 }
 
 #burger-logo {
     height: 200px;
+    width: 200px;
+}
+
+#new-burger {
+    height: 100px;
+    width: 300px;
+}
+
+#devoured, #not-devoured {
+    background-color: #ffffff;
+    color:black;
+}
+
+h4{
+    font-family: 'Gochi Hand', cursive;
+    font-size: 30px;
+    color: #28A745;
+    text-align: center;
 }

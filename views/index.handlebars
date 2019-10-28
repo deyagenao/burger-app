@@ -1,52 +1,58 @@
 <div class="container">
 
     {{!-- header --}}
-    <header>
-        <img src="/assets/img/burger-img.jpg" id="burger-logo" class="mx-auto">
-
-        <h1 id="title">Nom-A-Burger</h1>
-    </header>
+    <div class ="row">
+        <div class="mx-auto position-relative" id="header">
+            <img src="/assets/img/burger-img.jpg" id="burger-logo" class="ml-5">
+            <h1 id="title">Nom-A-Burger</h1>
+        </div>
+        
+    </div>
 
 
     {{!-- form for creating new burgers  --}}
     <div class="row">
-        <h4>Add a burger you'd like to eat!</h4>
-        <form class="add-burger">
-            <div class="form-group form-control">
-                <label for="new-burger">Enter the name of the burger:</label>
-                <input type="text" id="new-burger">
+        <form class="add-burger mx-auto text-center">
+            <div class="form-group">
+                <label for="new-burger">Add a burger you'd like to eat!</label>
+                <input type="text" id="new-burger" class="form-control">
             </div>
             <button class="btn btn-warning" type="submit">Add Burger</button>
         </form>
     </div>
 
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-md-2"></div>
         {{!-- section for displaying burgers that can be eaten --}}
-        <div class="col-md-4">
+        <div class="col-md-4 rounded mr-3 p-2" id="not-devoured">
+            <h4>Soon to Be Devoured</h4>
             <ol>
-            {{#each burgers}}
-                {{#unless devoured}}
-                    <li>
-                        <span><p>{{burger_name}}</p></span>
-                        <button class="btn btn-success change-devoured" data-id="{{id}}">
-                            Devour it!
-                        </button>
-                    </li>
-                {{/unless}}
-            {{/each}}
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        <li>
+                            <span><p>{{burger_name}}</p></span>
+                            <button class="btn btn-success change-devoured" data-id="{{id}}">
+                                Devour it!
+                            </button>
+                        </li>
+                    {{/unless}}
+                {{/each}}
             </ol>   
         </div>
 
         {{!-- section for displaying burgers that have been devoured --}}
-        <div class="col-md-4">
-            {{#each burgers}}
-                {{#if devoured}}
-                    <li>
-                        <p>{{this.burger_name}}</p>
-                    </li>
-                {{/if}}
-            {{/each}}
+        <div class="col-md-4 rounded ml-3 p-2" id="devoured">
+            <h4>Devoured</h4>
+
+            <ol>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <li>
+                            <p>{{this.burger_name}}</p>
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ol>
         </div>
         <div class="col-md-2"></div>
     </div>

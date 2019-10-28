@@ -21,7 +21,7 @@ var burger = {
     },
 
     // function for updating a burger 
-    update: function(col, val, conditionCol, conditionVal){
+    update: function(col, val, conditionCol, conditionVal, cb){
         orm.updateOne('burgers', col, val, conditionCol, conditionVal, function(res) {
             cb(res);
         });
