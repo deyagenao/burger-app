@@ -1,4 +1,4 @@
-* {
+body {
     background-color: #E44D4E;
     font-family: 'Open Sans', sans-serif
 }
@@ -12,6 +12,4 @@ h1 {
 
 #burger-logo {
     height: 200px;
-    width: auto;
-    margin: 0 auto
 }

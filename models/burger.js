@@ -4,7 +4,13 @@
 var orm = require("../config/orm.js");
 
 // ORM Functions 
-var burger;
+var burger = {
+    all: function (cb) {
+        orm.selectAll(function(res){
+            cb(res)
+        });
+    },
+};
 
 
 // Export functions 

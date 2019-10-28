@@ -1,3 +1,53 @@
-<img src="../../public/assets/img/burger-img.jpg" id="burger-logo">
+<div class="container">
 
-<h1 id="title">Nom-A-Burger</h1>
+    {{!-- header --}}
+    <header>
+        <img src="/assets/img/burger-img.jpg" id="burger-logo" class="mx-auto">
+
+        <h1 id="title">Nom-A-Burger</h1>
+    </header>
+
+
+    {{!-- form for creating new burgers  --}}
+    <div class="row">
+        <h4>Add a burger you'd like to eat!</h4>
+        <form>
+            <div class="form-group form-control">
+                <label for="new-burger">Enter the name of the burger:</label>
+                <input type="text" id="new-burger" name="name">
+            </div>
+            <button class="btn btn-warning" type="submit">Add Burger</button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        {{!-- section for displaying burgers that can be eaten --}}
+        <div class="col-md-4">
+            <ol>
+            {{#each burgers}}
+                {{#unless devoured}}
+                    <li>
+                        <span><p>{{burger_name}}</p></span>
+                        <button class="btn btn-success change-devoured" data-id="{{id}}">
+                            Devour it!
+                        </button>
+                    </li>
+                {{/unless}}
+            {{/each}}
+            </ol>   
+        </div>
+
+        {{!-- section for displaying burgers that have been devoured --}}
+        <div class="col-md-4">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <li>
+                        <p>{{this.burger_name}}</p>
+                    </li>
+                {{/if}}
+            {{/each}}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

@@ -19,12 +19,12 @@ var router = express.Router();
 // Create all routes
 // Home route: executes the selectAll function to receive and display all burger data from the database 
 router.get("/", function(req, res){
-    burger.selectAll(function(data){
+    burger.all(function(data){
         var hbsObject = {
             burgers: data
         }
+        res.render("index", hbsObject)
     })
-    res.render("index", hbsObject)
 })
 
 
